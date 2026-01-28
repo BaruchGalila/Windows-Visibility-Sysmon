@@ -37,6 +37,8 @@ All activity was performed in an isolated lab environment.
 ---
 
 ## Project Structure
+
+```text
 Windows-Visibility-Sysmon/
 ├── 00-lab-setup/              Lab assumptions and environment description
 ├── 01-sysmon/                 Sysmon overview and visibility rationale
@@ -44,6 +46,8 @@ Windows-Visibility-Sysmon/
 ├── 03-detection-scenarios/    Correlated investigation scenarios
 ├── 04-analysis/               Analyst reasoning and conclusions
 └── 05-incident-templates/     SOC Tier-1 incident documentation templates
+```
+
 Each directory reflects a **real SOC investigation phase**, from raw telemetry to escalation.
 
 ---
