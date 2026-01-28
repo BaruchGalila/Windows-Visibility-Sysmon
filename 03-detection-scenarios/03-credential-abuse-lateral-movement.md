@@ -100,7 +100,7 @@ Justification:
 
 This activity was documented using the SOC Tier-1 Incident Report template:
 
-➡️ `05-incident-templates/tier1-incident-report.md`
+→ `05-incident-templates/tier1-incident-report.md`
 
 The incident report includes:
 - Authentication timeline
