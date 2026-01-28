@@ -1,18 +1,72 @@
-# Lab Environment Overview
+# Lab Environment Details
 
-This project was conducted in an isolated lab environment for defensive security learning.
+This document provides the technical context required to understand
+the logs, scenarios, and investigations performed in this project.
 
-## Environment Components
-- Windows 10 endpoint with Sysmon installed
-- Event Viewer (Microsoft-Windows-Sysmon/Operational)
-- Windows Security Event Log
-- No production systems involved
+It is written from a SOC Tier-1 perspective.
 
-## Assumptions
-- All activity is analyzed post-execution
-- No automated detection or blocking
-- Focus is on visibility, correlation, and analyst reasoning
+---
 
-## Analyst Perspective
-All analysis is performed from a SOC Tier-1 / Security Tech Support viewpoint:
-observe → correlate → classify → escalate
+## Operating System
+
+- Windows 10 (x64)
+- Fully patched
+- Local Administrator account used for controlled testing
+- Endpoint monitored using Sysmon
+
+---
+
+## Sysmon Configuration Context
+
+- Sysmon is installed as a persistent service
+- Focused on high-signal events relevant to investigation:
+  - Process creation
+  - Network connections
+- The configuration prioritizes **clarity over volume**
+
+(Sysmon configuration details are documented separately under `/01-sysmon`)
+
+---
+
+## Logging Scope
+
+### Endpoint Telemetry
+- Sysmon Operational Log
+  - Event ID 1: Process Create
+  - Event ID 3: Network Connection
+
+### Identity / Security Context
+- Windows Security Event Log (when correlated)
+  - Authentication context
+  - Privilege level validation
+
+---
+
+## Network Context
+
+- Internal lab network
+- No exposure to production systems
+- All IP addresses observed belong to the lab subnet
+- External connections (when present) are simulated and controlled
+
+---
+
+## Assumptions for Investigation
+
+- All events are analyzed as if they were received by a SOC
+- The analyst does not assume malicious intent by default
+- Classification is based on:
+  - Behavior
+  - Sequence
+  - Context
+  - Privilege
+
+---
+
+## What This Environment Is NOT
+
+- Not a penetration testing lab
+- Not malware development
+- Not exploitation-focused
+
+The purpose is **visibility, reasoning, and decision-making**.
